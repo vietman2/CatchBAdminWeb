@@ -1,0 +1,10 @@
+.home {
+    text-align: center;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* 전체 화면 높이로 설정 */
+    width: 100%; /* 전체 화면 너비로 설정 */
+  }
+  

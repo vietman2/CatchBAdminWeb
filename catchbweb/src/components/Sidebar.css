@@ -1,0 +1,93 @@
+.sidebar {
+  width: 350px;
+  background-color: #262626;
+  color: white;
+  padding: 20px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 0 20px 20px 0;
+  overflow-y: auto;
+}
+.sidebar-logo {
+  display: block;
+  margin: 20px auto 20px auto;
+  width: 50%;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.sidebar ul li {
+  margin: 30px 0;
+  padding-left: 10px;
+  cursor: pointer;
+  position: relative; /* 추가 */
+}
+
+.sidebar ul li ul.sub-menu {
+  list-style: none;
+  padding-left: 20px;
+  display: none;
+}
+
+.sidebar ul li ul.sub-menu.open {
+  display: block;
+}
+
+.sidebar ul li button,
+.sub-menu li button {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 10px 0; /* 기본 상태에서 패딩 상하만 적용, 좌우는 0 */
+  border-radius: 10px; /* 둥근 모서리 추가 */
+  cursor: pointer;
+  transition: background-color 0.3s, padding 0.3s; /* 부드러운 전환 효과 */
+}
+
+.sidebar ul li button:hover {
+  background-color: #555555; /* 박스 배경색 변경 */
+  padding: 10px; /* 마우스 오버 시 전체 패딩 적용 */
+}
+
+.sub-menu li button:hover {
+  background-color: #555555; /* 박스 배경색 변경 */
+  padding: 10px; /* 마우스 오버 시 전체 패딩 적용 */
+}
+
+.sub-menu li button {
+  color: #b0b0b0 !important; /* 약간 회색 */
+  font-size: 24px !important;
+  font-weight: normal !important;
+}
+
+.sidebar ul li.clickable {
+  font-size: 24px; /* 상위 탭 글씨 크기 조정 */
+  font-weight: bold; /* 굵게 표시 */
+}
+
+.sidebar ul li.clickable button {
+  position: relative; /* 수정 */
+  z-index: 1; /* 수정 */
+}
+
+.sidebar ul li.clickable:hover > button {
+  background-color: #555555; /* 박스 배경색 변경 */
+  padding: 10px; /* 마우스 오버 시 전체 패딩 적용 */
+}
+
+.sidebar ul li.open > button {
+  background-color: transparent; /* 열린 상태에서는 배경색 제거 */
+  padding: 10px 0; /* 열린 상태에서는 패딩 제거 */
+}
