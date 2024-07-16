@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import Login from './Login';
 import Home from './components/Home';
 import Members from './components/Members';
+import AcademyCoach from './components/AcademyCoach';
+import MembersGeneral from './components/MembersGeneral';
 import Reservations from './components/Reservations';
 import Coupons from './components/Coupons';
 import Promotions from './components/Promotions';
@@ -35,6 +37,8 @@ const App: React.FC = () => {
           >
             <Route index element={<Home />} />
             <Route path="members" element={<Members />} />
+            <Route path="members/academy" element={<AcademyCoach />} />
+            <Route path="members/general" element={<MembersGeneral />} />
             <Route path="reservations" element={<Reservations />} />
             <Route path="coupons" element={<Coupons />} />
             <Route path="promotions" element={<Promotions />} />
