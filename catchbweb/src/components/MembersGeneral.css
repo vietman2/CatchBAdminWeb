@@ -1,79 +1,242 @@
 .members-general {
-    padding: 0 30px;
-  }
-  
-  .section {
-    margin-bottom: 50px;
-  }
-  
-  .section h2 {
-    margin: 30px 0;
-  }
-  
-  .search-input {
-    margin-bottom: 20px;
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 18px; /* 폰트 크기 추가 */
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  th, td {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    text-align: center; /* 가운데 정렬 */
-  }
-  
-  th {
-    background-color: #f4f4f4;
-  }
-  
-  .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .pagination button {
-    background: none;
-    border: none;
-    width: auto;
-    margin: 0 2px;
-    cursor: pointer;
-    font-size: 20px;
-    color: #a1a1a1;
-  }
-  
-  .pagination button.active {
-    font-weight: bold;
-    color: black;
-    border: none;
-  }
-  
-  .pagination button[disabled] {
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-  
-  .details-button {
-    border: 1px solid #d9d9d9;
-    color: #9d9d9d;
-    background-color: transparent;
-    padding: 2px 6px; /* 버튼 크기 조정 */
-    font-size: 16px; /* 글씨 크기 조정 */
-    cursor: pointer;
-    margin-right: 5px;
-    border-radius: 4px; /* 버튼 모서리 둥글게 */
-    width: auto; /* 버튼 가로 길이 자동 */
-  }
-  
-  .details-button:hover {
-    background-color: #f4f4f4;
-  }
-  
+  padding: 0 30px;
+}
+
+.section {
+  margin-bottom: 50px;
+}
+
+.section h2 {
+  margin: 30px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  text-align: center; /* 가운데 정렬 */
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background: none;
+  border: none;
+  width: auto;
+  margin: 0 2px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #a1a1a1;
+}
+
+.pagination button.active {
+  font-weight: bold;
+  color: black;
+  border: none;
+}
+
+.pagination button[disabled] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.details-button {
+  border: 1px solid #d9d9d9;
+  color: #9d9d9d;
+  background-color: transparent;
+  padding: 2px 6px; /* 버튼 크기 조정 */
+  font-size: 16px; /* 글씨 크기 조정 */
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 4px; /* 버튼 모서리 둥글게 */
+  width: auto; /* 버튼 가로 길이 자동 */
+}
+
+.details-button:hover {
+  background-color: #f4f4f4;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-wrapper {
+  position: relative;
+  width: 60%;
+  max-width: 800px;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.member-delete-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: auto;
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color 0.2s, color 0.2s; /* 부드러운 전환 효과 추가 */
+}
+
+.close-button {
+  width: 100%;
+  padding: 10px;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.2s, color 0.2s; /* 부드러운 전환 효과 추가 */
+}
+
+.modal-header,
+.modal-body {
+  display: flex;
+}
+
+.modal-header {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  position: relative; /* 추가 */
+}
+
+.member-photo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #ddd;
+  padding-right: 10px;
+  position: relative;
+}
+
+.member-photo img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.member-info {
+  text-align: center;
+}
+
+.member-info h2 {
+  font-size: 30px;
+}
+
+.member-info p {
+  font-size: 20px;
+}
+
+.basic-info {
+  flex: 2;
+  padding-left: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.info-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.info-item {
+  width: 100%;
+  padding: 20px 20px 10px 5px;
+  text-align: left;
+  min-height: 40px; /* 최소 높이 추가 */
+}
+
+.info-item p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.info-item span {
+  display: block;
+  width: 100%;
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+  height: 30px; /* 고정된 높이 설정 */
+}
+
+.activity-log {
+  flex: 2;
+  border-right: 1px solid #ddd;
+  padding-right: 20px;
+}
+
+.manager-memo {
+  flex: 1;
+  padding-left: 20px;
+  position: relative; /* 추가 */
+}
+
+.manager-memo textarea {
+  width: 100%;
+  height: 80%; /* 높이 증가 */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  resize: none; /* 크기 조정 불가 */
+  overflow-y: auto; /* 스크롤바 추가 */
+}
+
+.save-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  background: black;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}

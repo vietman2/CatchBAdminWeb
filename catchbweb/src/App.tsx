@@ -10,6 +10,9 @@ import Coupons from './components/Coupons';
 import Promotions from './components/Promotions';
 import Support from './components/Support';
 import Reviews from './components/Reviews';
+import ReviewManage from './components/ReviewManage';
+import OneToOne from './components/OneToOne';
+import Faq from './components/Faq';
 import Alerts from './components/Alerts';
 import Notices from './components/Notices';
 import Community from './components/Community';
@@ -44,6 +47,9 @@ const App: React.FC = () => {
             <Route path="promotions" element={<Promotions />} />
             <Route path="support" element={<Support />} />
             <Route path="reviews" element={<Reviews />} />
+            <Route path="reviews/manage" element={<ReviewManage />} />
+            <Route path="support/one-to-one" element={<OneToOne />} />
+            <Route path="support/faq" element={<Faq />} />
             <Route path="alerts" element={<Alerts />} />
             <Route path="notices" element={<Notices />} />
             <Route path="community" element={<Community />} />
