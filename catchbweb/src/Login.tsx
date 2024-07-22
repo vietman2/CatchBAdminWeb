@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from './components/AuthContext';
 import logo from './logo.svg';
 import './Login.css';
+import TextButton from './components/Buttons/TextButton'; // 경로를 실제 파일 위치에 맞게 수정
 
 const Login: React.FC = () => {
   const [companyAccount, setCompanyAccount] = useState<string>('');
@@ -10,7 +11,7 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
 
-  const handleLogin = (event: React.FormEvent) => {
+  const handleLogin = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     // 임시 로그인 로직
     if (companyAccount && password) {
@@ -25,7 +26,7 @@ const Login: React.FC = () => {
     <div className="Login">
       <header className="Login-header">
         <img src={logo} className="Login-logo" alt="logo" />
-        <form className="Login-form" onSubmit={handleLogin}>
+        <form className="Login-form" onSubmit={(e) => e.preventDefault()}>
           <div className={`form-group ${companyAccount ? 'has-value' : ''}`}>
             <input
               type="text"
@@ -48,7 +49,7 @@ const Login: React.FC = () => {
             />
             <label htmlFor="password" className="form-label">비밀번호</label>
           </div>
-          <button type="submit" className="login-button">로그인</button>
+          <TextButton text="로그인" color="black" onClick={handleLogin} style={{ width: '100%', padding: '1vh 20px', fontSize: '2vh' }} />
         </form>
       </header>
     </div>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './AcademyCoach.css';
+import TextButton from './Buttons/TextButton';
+import SearchBar from './SearchBar/SearchBar'; // SearchBar 컴포넌트 임포트
 
 const generateDummyData = (count: number, type: 'academy' | 'coach') => {
   const data = [];
@@ -79,8 +81,8 @@ const AcademyCoach: React.FC = () => {
                 <td>{request.date}</td>
                 <td>{request.file}</td>
                 <td>
-                  <button className="reject-button">등록거절</button>
-                  <button className="approve-button">등록승인</button>
+                  <TextButton text="등록거절" color="orange" onClick={() => {}} type={2} style={{ marginRight: '10px' }} />
+                  <TextButton text="등록승인" color="black" onClick={() => {}} type={2} />
                 </td>
               </tr>
             ))}
@@ -90,12 +92,10 @@ const AcademyCoach: React.FC = () => {
 
       <section className="section">
         <h2>아카데미 목록</h2>
-        <input
-          type="text"
+        <SearchBar
           placeholder="아카데미 검색"
           value={academySearchTerm}
           onChange={e => setAcademySearchTerm(e.target.value)}
-          className="search-input"
         />
         <table>
           <thead>
@@ -118,7 +118,7 @@ const AcademyCoach: React.FC = () => {
                 <td>{academy.phone}</td>
                 <td>{academy.contact}</td>
                 <td>{academy.file}</td>
-                <td><button className="delete-button">삭제</button></td>
+                <td><TextButton text="삭제" color="red" onClick={() => {}} type={2} /></td>
               </tr>
             ))}
           </tbody>
@@ -128,12 +128,10 @@ const AcademyCoach: React.FC = () => {
 
       <section className="section">
         <h2>코치 목록</h2>
-        <input
-          type="text"
+        <SearchBar
           placeholder="코치 검색"
           value={coachSearchTerm}
           onChange={e => setCoachSearchTerm(e.target.value)}
-          className="search-input"
         />
         <table>
           <thead>
@@ -154,7 +152,7 @@ const AcademyCoach: React.FC = () => {
                 <td>{coach.address}</td>
                 <td>{coach.phone}</td>
                 <td>{coach.file}</td>
-                <td><button className="delete-button">삭제</button></td>
+                <td><TextButton text="삭제" color="red" onClick={() => {}} type={2} /></td>
               </tr>
             ))}
           </tbody>
