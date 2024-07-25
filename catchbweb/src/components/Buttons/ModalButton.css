@@ -1,0 +1,14 @@
+.modal-text-button1 {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    white-space: nowrap; /* 텍스트가 한 줄에 들어가도록 설정 */
+    width: 100%; /* 기본적으로 부모 컨테이너의 너비를 따름 */
+}
+
+.text-button1:hover {
+    opacity: 0.8; /* 호버 효과 추가 */
+}

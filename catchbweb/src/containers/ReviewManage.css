@@ -1,0 +1,23 @@
+.reviews {
+    padding: 0 30px;
+  }
+  
+  .reviews h1 {
+    margin-bottom: 20px;
+  }
+  
+  .reviews h2 {
+    margin-bottom: 20px;
+  }
+
+  .status-incomplete {
+    color: gray;
+  }
+
+  .status-review {
+    color: orange;
+  }
+
+  .status-complete {
+    color: green;
+  }

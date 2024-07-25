@@ -1,0 +1,19 @@
+.community {
+  padding: 0 30px;
+}
+
+.community h1, .community h2 {
+  margin-bottom: 20px;
+}
+
+.status-incomplete {
+  color: gray;
+}
+
+.status-review {
+  color: orange;
+}
+
+.status-complete {
+  color: green;
+}

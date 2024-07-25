@@ -1,0 +1,12 @@
+.notices {
+  padding: 0 30px;
+}
+
+.notices h1 {
+  margin-bottom: 20px;
+}
+
+.notices-header {
+  display: flex;
+  align-items: flex-start;
+}

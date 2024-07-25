@@ -1,0 +1,124 @@
+.members-general {
+  padding: 0 30px;
+}
+
+.section {
+  margin-bottom: 30px;
+}
+
+.section h2 {
+  margin: 20px 0;
+}
+
+.modal-header-layout,
+.modal-body-layout {
+  display: flex;
+}
+
+.modal-header-layout {
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  position: relative;
+}
+
+.modal-body-layout {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.member-photo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #ddd;
+  padding-right: 10px;
+  position: relative;
+}
+
+.member-photo img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.member-info {
+  text-align: center;
+}
+
+.member-info h2 {
+  font-size: 30px;
+}
+
+.member-info p {
+  font-size: 20px;
+}
+
+.basic-info {
+  flex: 2;
+  padding-left: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.info-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.info-item {
+  width: 100%;
+  padding: 20px 20px 10px 5px;
+  text-align: left;
+  min-height: 40px; /* 최소 높이 추가 */
+}
+
+.info-item p {
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.info-item span {
+  display: block;
+  width: 100%;
+  padding: 5px 0;
+  border-bottom: 1px solid #ddd;
+  height: 30px; /* 고정된 높이 설정 */
+}
+
+.activity-log {
+  flex: 2;
+  border-right: 1px solid #ddd;
+  padding-right: 20px;
+}
+
+.manager-memo {
+  flex: 1;
+  padding-left: 20px;
+  position: relative; /* 추가 */
+}
+
+.manager-memo textarea {
+  width: 100%;
+  height: 70%; /* 높이 증가 */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  resize: none; /* 크기 조정 불가 */
+  overflow-y: auto; /* 스크롤바 추가 */
+}

@@ -1,0 +1,182 @@
+.reservations {
+  padding: 0 30px;
+}
+
+.part {
+  margin-bottom: 30px;
+}
+
+.part h2 {
+  margin: 20px 0;
+}
+
+.part div {
+  display: flex;
+}
+
+.reservation-status-before-use {
+  color: #FF5833;
+}
+
+.reservation-status-using {
+  color: green;
+}
+
+.reservation-status-complete {
+  color: #9D9D9D;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+.reservation-not-allowed {
+  color: #9D9D9D;
+  font-size: 16px;
+}
+
+.ReactModal__Overlay {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.ReactModal__Content {
+  padding: 20px;
+  max-width: 1200px;
+  max-height: 70vh;
+  height: auto;
+  margin: auto;
+  background: white;
+  border-radius: 4px;
+}
+
+
+.reservation-modal-content p {
+  font-size: 24px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.reservation-modal-content h3 {
+  margin-top: 20px;
+  font-size: 22px;
+  margin-bottom: 10px; /* 예약 내역과 테이블 사이의 간격 조절 */
+}
+
+.reservation-modal-content table {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.reservation-modal-content .calendar-container,
+.reservation-modal-content .time-slot-container {
+  margin-bottom: 10px; /* 예약 선택 항목과 닫기 버튼 사이의 간격 조절 */
+}
+
+.date-time-selection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* 수정: 상단 정렬 */
+  gap: 20px; /* 간격 조절 */
+}
+
+.time-slots {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.session {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.session h4 {
+  margin-bottom: 10px;
+}
+
+.session .slot-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.session button {
+  background: none;
+  border: 1px solid #d9d9d9;
+  color: #9D9D9D;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  width: 100px;
+}
+
+.session button.selected {
+  background-color: #14863e;
+  color: white;
+}
+
+.session button:hover {
+  background-color: #14863e;
+  color: #fff;
+}
+
+/* react-datepicker 커스터마이징 */
+.react-datepicker {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.react-datepicker__header {
+  background-color: #f4f4f4;
+  border-bottom: 1px solid #ddd;
+}
+
+.react-datepicker__current-month {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.react-datepicker__day-name, .react-datepicker__day {
+  width: 2.5rem;
+  line-height: 2.5rem;
+  margin: 0.166rem;
+}
+
+.react-datepicker__day--selected {
+  background-color: #14863e;
+  color: white;
+}
+
+.react-datepicker__day--keyboard-selected {
+  background-color: #14863e;
+  color: white;
+}
+
+.react-datepicker__day--today {
+  font-weight: bold;
+}
+
+.react-datepicker__navigation--previous, .react-datepicker__navigation--next {
+  top: 10px;
+}
+
+/* 검색된 회원의 항목에 마우스를 가져다댔을 때 밑줄 */
+tbody tr:hover td {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 변경가능 항목 선택 시 스타일 */
+.active {
+  background-color: #e0f7fa;
+  cursor: pointer;
+}
+
+/* 변경불가 항목에 밑줄 없음 */
+.status-complete {
+  text-decoration: none !important;
+  pointer-events: none;
+}

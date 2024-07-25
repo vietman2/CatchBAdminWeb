@@ -1,0 +1,25 @@
+.one-to-one {
+    padding: 0 30px;
+  }
+  
+  .one-to-one h1 {
+    margin-bottom: 20px;
+  }
+  
+  .one-to-one h2 {
+    margin-bottom: 20px;
+  }
+
+
+  .status-incomplete {
+    color: gray;
+  }
+  
+  .status-review {
+    color: orange;
+  }
+  
+  .status-complete {
+    color: green;
+  }
+  
