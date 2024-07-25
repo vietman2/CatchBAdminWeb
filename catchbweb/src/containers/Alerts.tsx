@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './Alerts.css';
-import TextButton from '../components/Buttons/TextButton'; // TextButton 컴포넌트 임포트
-import SearchBar from '../components/SearchBar/SearchBar'; // SearchBar 컴포넌트 임포트
-import TabPanel from '../components/Tabs/TabPanel'; // TabPanel 컴포넌트 임포트
-import Pagination from '../components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
-import Table from '../components/Table/Table'; // Table 컴포넌트 임포트
+import TextButton from '@components/Buttons/TextButton'; // TextButton 컴포넌트 임포트
+import SearchBar from '@components/SearchBar/SearchBar'; // SearchBar 컴포넌트 임포트
+import TabPanel from '@components/Tabs/TabPanel'; // TabPanel 컴포넌트 임포트
+import Pagination from '@components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
+import Table from '@components/Table/Table'; // Table 컴포넌트 임포트
 
 const dummyAlerts = Array.from({ length: 50 }, (_, i) => ({
   target: i % 3 === 0 ? '일반회원' : i % 3 === 1 ? '아카데미' : '코치',

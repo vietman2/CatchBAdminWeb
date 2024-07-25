@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import './Faq.css';
-import TextButton from '../components/Buttons/TextButton';
-import SearchBar from '../components/SearchBar/SearchBar';
-import TabPanel from '../components/Tabs/TabPanel';
-import Modal from '../components/Modal/Modal';
-import ModalButton from '../components/Buttons/ModalButton'; // ModalButton 컴포넌트 임포트
-import Pagination from '../components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
-import Table from '../components/Table/Table'; // Table 컴포넌트 임포트
+import TextButton from '@components/Buttons/TextButton';
+import SearchBar from '@components/SearchBar/SearchBar';
+import TabPanel from '@components/Tabs/TabPanel';
+import Modal from '@components/Modal/Modal';
+import ModalButton from '@components/Buttons/ModalButton'; // ModalButton 컴포넌트 임포트
+import Pagination from '@components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
+import Table from '@components/Table/Table'; // Table 컴포넌트 임포트
 
 const dummyFaqs = Array.from({ length: 50 }, (_, i) => ({
   question: `[${i % 5 === 0 ? '예약' : i % 5 === 1 ? '아카데미' : i % 5 === 2 ? '레슨' : i % 5 === 3 ? '이벤트' : '프로모드'}] FAQ Question ${i + 1}`,

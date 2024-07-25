@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './AcademyCoach.css';
-import TextButton from '../components/Buttons/TextButton';
-import SearchBar from '../components/SearchBar/SearchBar'; // SearchBar 컴포넌트 임포트
-import Pagination from '../components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
-import Table from '../components/Table/Table'; // Table 컴포넌트 임포트
+import TextButton from '@components/Buttons/TextButton';
+import SearchBar from '@components/SearchBar/SearchBar'; // SearchBar 컴포넌트 임포트
+import Pagination from '@components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
+import Table from '@components/Table/Table'; // Table 컴포넌트 임포트
 
 const generateDummyData = (count: number, type: 'academy' | 'coach') => {
   const data = [];

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './MembersGeneral.css';
-import TextButton from '../components/Buttons/TextButton';
-import SearchBar from '../components/SearchBar/SearchBar';
-import Modal from '../components/Modal/Modal';
-import Pagination from '../components/Pagination/Pagination';
-import Table from '../components/Table/Table'; // Table 컴포넌트 임포트
+import TextButton from '@components/Buttons/TextButton';
+import SearchBar from '@components/SearchBar/SearchBar';
+import Modal from '@components/Modal/Modal';
+import Pagination from '@components/Pagination/Pagination';
+import Table from '@components/Table/Table'; // Table 컴포넌트 임포트
 
 const dummyData = {
   members: Array.from({ length: 50 }, (_, i) => ({

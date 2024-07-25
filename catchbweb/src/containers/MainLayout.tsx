@@ -1,9 +1,9 @@
 import React from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { useAuth } from '../AuthContext';
-import Sidebar from '../components/Sidebar/Sidebar';
+import { useAuth } from '@/AuthContext';
+import Sidebar from '@components/Sidebar/Sidebar';
 import './MainLayout.css';
-import TextButton from '../components/Buttons/TextButton';
+import TextButton from '@components/Buttons/TextButton';
 
 const MainLayout: React.FC = () => {
   const { user, logout } = useAuth();
