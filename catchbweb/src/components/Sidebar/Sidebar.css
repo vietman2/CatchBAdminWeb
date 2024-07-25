@@ -1,0 +1,117 @@
+.sidebar {
+  width: 260px;
+  background-color: #262626;
+  color: white;
+  padding: 30px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 0 20px 20px 0;
+  overflow-y: auto;
+  overflow-x: hidden; /* 가로 스크롤을 비활성화 */
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 8px; /* 스크롤바 너비 */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #888; /* 스크롤바 색상 */
+  border-radius: 4px; /* 스크롤바 모서리 둥글게 */
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* 호버 상태의 스크롤바 색상 */
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #ffffff; /* 스크롤바 트랙 색상 */
+}
+
+.sidebar nav {
+  width: fit-content;
+}
+
+.sidebar-logo {
+  display: block;
+  margin: 20px auto;
+  width: 40%;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  width: 200px;
+}
+
+.sidebar ul li {
+  margin: 5px 0;
+  cursor: pointer;
+  position: relative;
+}
+
+.sidebar ul li ul.sub-menu {
+  list-style: none;
+  padding-left: 20px;
+  display: none;
+}
+
+.sidebar ul li ul.sub-menu.open {
+  display: block;
+}
+
+.sidebar ul li button,
+.sub-menu li button {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 10px 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.25s, padding 0.25s;
+}
+
+.sidebar ul li button:hover,
+.sidebar ul li button.active,
+.sub-menu li button:hover,
+.sub-menu li button.active {
+  background-color: #555555;
+  padding: 10px;
+  flex-wrap: nowrap;
+}
+
+.sub-menu li button {
+  color: #b0b0b0 !important;
+  font-size: 16px !important;
+  font-weight: normal !important;
+}
+
+.sub-menu li button.active {
+  font-weight: bold;
+  color: white !important;
+}
+
+.sidebar ul li.clickable {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.sidebar ul li.clickable button {
+  position: relative;
+  z-index: 1;
+}
+
+.sidebar ul li.clickable:hover > button,
+.sidebar ul li.open > button,
+.sidebar ul li.active > button {
+  background-color: #555555;
+  padding: 10px;
+}
