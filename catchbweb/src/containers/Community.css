@@ -17,3 +17,54 @@
 .status-complete {
   color: green;
 }
+
+/* Report Modal Styles */
+
+.report-modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.report-modal-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.report-modal-field label {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.report-modal-value {
+  display: block;
+  height: 36px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+
+.report-modal-status {
+  display: flex;
+  gap: 30px;
+}
+
+.report-modal-status label {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: normal; /* Bold 제거 */
+  white-space: nowrap;
+}
+
+.report-modal-status input[type="radio"] {
+  margin-right: 5px;
+}
+
+.report-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}

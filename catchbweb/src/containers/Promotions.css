@@ -1,9 +1,35 @@
 .promotions {
-  text-align: center;
-  font-size: 24px;
+  padding: 0 30px;
+}
+
+.promotions h1 {
+  margin-bottom: 20px;
+}
+
+.promotions-header,
+.events-header {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  align-items: flex-start;
+}
+
+/* Modal Styles */
+.promotion-modal-body {
+  margin-bottom: 20px;
+}
+
+.promotion-modal-field {
+  margin-bottom: 20px;
+}
+
+.promotion-modal-field label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.promotion-modal-field input {
   width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 18px;
 }

@@ -261,12 +261,21 @@ const Reservations: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                <TextButton
-                  type={1}
-                  color="#007bff"
-                  text="변경확정"
-                  onClick={closeModal}
-                />
+                <div className="button-container">
+                  <TextButton
+                    type={1}
+                    color="black"
+                    text="변경확정"
+                    onClick={closeModal}
+                    style={{ marginRight: '10px' }}
+                  />
+                  <TextButton
+                    type={1}
+                    color="green"
+                    text="변경요청"
+                    onClick={closeModal}
+                  />
+                </div>
               </>
             )}
           </div>

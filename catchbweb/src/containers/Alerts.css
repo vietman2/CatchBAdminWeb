@@ -18,3 +18,86 @@
 .status-sent {
   color: green;
 }
+
+/* Alert Modal Styles */
+
+.alert-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.alert-modal-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.alert-modal-field label {
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.alert-modal-field input,
+.alert-modal-field select,
+.alert-modal-field textarea {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* 검색창과 라디오 버튼 사이의 간격 설정 */
+}
+
+.alert-radio-container {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* 각 라디오 버튼 간격 조정 */
+  margin-bottom: 10px;
+}
+
+.alert-radio-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px !important;
+  font-weight: normal !important; 
+  white-space: nowrap;
+}
+
+.search-results {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 100px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  position: absolute;
+  background-color: white;
+  z-index: 1;
+}
+
+.search-results li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.search-results li:hover {
+  background-color: #f4f4f4;
+}
+
+.selected-member-box {
+  margin-bottom: 20px;
+  font-weight: normal;
+  font-size: 12px;
+  color: #9d9d9d;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}

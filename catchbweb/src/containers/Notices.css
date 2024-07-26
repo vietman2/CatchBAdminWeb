@@ -10,3 +10,25 @@
   display: flex;
   align-items: flex-start;
 }
+
+.notice-modal-field {
+  margin-bottom: 20px;
+}
+
+.notice-modal-field label {
+  display: block;
+  margin-bottom: 5px;
+
+}
+
+.notice-modal-field input,
+.notice-modal-field select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.notice-modal-field input {
+  font-size: 18px;
+}
