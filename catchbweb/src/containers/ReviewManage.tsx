@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './ReviewManage.css';
-import SearchBar from '../components/SearchBar/SearchBar'; // SearchBar 컴포넌트 임포트
-import TabPanel from '../components/Tabs/TabPanel'; // TabPanel 컴포넌트 임포트
-import Pagination from '../components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
-import Table from '../components/Table/Table'; // Table 컴포넌트 임포트
+import SearchBar from '@components/SearchBar/SearchBar'; // SearchBar 컴포넌트 임포트
+import TabPanel from '@components/Tabs/TabPanel'; // TabPanel 컴포넌트 임포트
+import Pagination from '@components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
+import Table from '@components/Table/Table'; // Table 컴포넌트 임포트
 
 const dummyReviews = Array.from({ length: 50 }, (_, i) => ({
   reporterId: `user${i + 1}`,

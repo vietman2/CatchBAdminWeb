@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import Modal from '../components/Modal/Modal'; // Modal 컴포넌트 임포트
+import Modal from '@components/Modal/Modal'; // Modal 컴포넌트 임포트
 import DatePicker, { registerLocale } from 'react-datepicker';
 import ko from 'date-fns/locale/ko';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Reservations.css';
-import TextButton from '../components/Buttons/TextButton';
-import SearchBar from '../components/SearchBar/SearchBar'; // SearchBar 컴포넌트 임포트
-import Table from '../components/Table/Table'; // Table 컴포넌트 임포트
-import Pagination from '../components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
+import TextButton from '@components/Buttons/TextButton';
+import SearchBar from '@components/SearchBar/SearchBar'; // SearchBar 컴포넌트 임포트
+import Table from '@components/Table/Table'; // Table 컴포넌트 임포트
+import Pagination from '@components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
 
 // `Locale` 타입을 명시적으로 가져옴
 import { Locale } from 'date-fns';

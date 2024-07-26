@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../AuthContext';
-import logo from '../logo.svg';
+import { useAuth } from '@/AuthContext';
+import logo from '@/logo.svg';
 import './Login.css';
-import TextButton from '../components/Buttons/TextButton'; // 경로를 실제 파일 위치에 맞게 수정
+import TextButton from '@components/Buttons/TextButton'; // 경로를 실제 파일 위치에 맞게 수정
 
 const Login: React.FC = () => {
   const [companyAccount, setCompanyAccount] = useState<string>('');

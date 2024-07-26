@@ -1,6 +1,6 @@
 import React from 'react';
 import './Modal.css';
-import CloseButton from '../Buttons/CloseButton'; // CloseButton 컴포넌트 임포트
+import CloseButton from '@components/Buttons/CloseButton'; // CloseButton 컴포넌트 임포트
 
 interface ModalProps {
   isOpen: boolean;

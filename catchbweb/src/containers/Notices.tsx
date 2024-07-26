@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Notices.css';
-import TextButton from '../components/Buttons/TextButton'; // TextButton 컴포넌트 경로 수정
-import SearchBar from '../components/SearchBar/SearchBar';
-import Pagination from '../components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
-import Table from '../components/Table/Table'; // Table 컴포넌트 임포트
+import TextButton from '@components/Buttons/TextButton'; // TextButton 컴포넌트 경로 수정
+import SearchBar from '@components/SearchBar/SearchBar';
+import Pagination from '@components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
+import Table from '@components/Table/Table'; // Table 컴포넌트 임포트
 
 const dummyNotices = Array.from({ length: 50 }, (_, i) => ({
   title: `Notice ${i + 1}`,
