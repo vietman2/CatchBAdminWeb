@@ -4,6 +4,7 @@ import TextButton from '@components/Buttons/TextButton';
 import SearchBar from '@components/SearchBar/SearchBar'; // SearchBar 컴포넌트 임포트
 import Pagination from '@components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
 import Table from '@components/Table/Table'; // Table 컴포넌트 임포트
+import ConfirmModal from '@components/Modal/ConfirmModal'; // ConfirmModal 컴포넌트 임포트
 
 const generateDummyData = (count: number, type: 'academy' | 'coach') => {
   const data = [];
@@ -46,6 +47,10 @@ const AcademyCoach: React.FC = () => {
   const [coachSearchTerm, setCoachSearchTerm] = useState('');
   const [academyPage, setAcademyPage] = useState(1);
   const [coachPage, setCoachPage] = useState(1);
+  const [modalMessage, setModalMessage] = useState('');
+  const [modalDetails, setModalDetails] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [onConfirm, setOnConfirm] = useState<() => void>(() => {});
 
   const itemsPerPage = 10;
 
@@ -56,6 +61,43 @@ const AcademyCoach: React.FC = () => {
   const filteredCoaches = dummyData.coaches.filter(coach =>
     coach.name.toLowerCase().includes(coachSearchTerm.toLowerCase())
   ).slice((coachPage - 1) * itemsPerPage, coachPage * itemsPerPage);
+
+  const handleOpenModal = (message: string, details: string, confirmAction: () => void) => {
+    setModalMessage(message);
+    setModalDetails(details);
+    setIsModalOpen(true);
+    setOnConfirm(() => confirmAction);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setModalMessage('');
+    setModalDetails('');
+  };
+
+  const handleReject = (name: string) => {
+    handleOpenModal('정말 등록거절 하시겠습니까?', `이름: ${name}`, () => {
+      // 등록거절 로직
+      alert(`${name} 등록거절`);
+      handleCloseModal();
+    });
+  };
+
+  const handleApprove = (name: string) => {
+    handleOpenModal('정말 등록승인 하시겠습니까?', `이름: ${name}`, () => {
+      // 등록승인 로직
+      alert(`${name} 등록승인`);
+      handleCloseModal();
+    });
+  };
+
+  const handleDelete = (name: string) => {
+    handleOpenModal('정말 삭제하시겠습니까?', `이름: ${name}`, () => {
+      // 삭제 로직
+      alert(`${name} 삭제`);
+      handleCloseModal();
+    });
+  };
 
   return (
     <div className="academy-coach">
@@ -74,8 +116,8 @@ const AcademyCoach: React.FC = () => {
               <td>{request.date}</td>
               <td>{request.file}</td>
               <td>
-                <TextButton text="등록거절" color="orange" onClick={() => {}} type={2} style={{ marginRight: '10px' }} />
-                <TextButton text="등록승인" color="black" onClick={() => {}} type={2} />
+                <TextButton text="등록거절" color="orange" onClick={() => handleReject(request.name)} type={2} style={{ marginRight: '10px' }} />
+                <TextButton text="등록승인" color="black" onClick={() => handleApprove(request.name)} type={2} />
               </td>
             </tr>
           )}
@@ -100,7 +142,7 @@ const AcademyCoach: React.FC = () => {
               <td>{academy.phone}</td>
               <td>{academy.contact}</td>
               <td>{academy.file}</td>
-              <td><TextButton text="삭제" color="red" onClick={() => {}} type={2} /></td>
+              <td><TextButton text="삭제" color="red" onClick={() => handleDelete(academy.name)} type={2} /></td>
             </tr>
           )}
         />
@@ -124,12 +166,20 @@ const AcademyCoach: React.FC = () => {
               <td>{coach.address}</td>
               <td>{coach.phone}</td>
               <td>{coach.file}</td>
-              <td><TextButton text="삭제" color="red" onClick={() => {}} type={2} /></td>
+              <td><TextButton text="삭제" color="red" onClick={() => handleDelete(coach.name)} type={2} /></td>
             </tr>
           )}
         />
         <Pagination currentPage={coachPage} totalPages={Math.ceil(dummyData.coaches.length / itemsPerPage)} onPageChange={setCoachPage} />
       </section>
+
+      <ConfirmModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onConfirm={onConfirm}
+        message={modalMessage}
+        details={modalDetails}
+      />
     </div>
   );
 };

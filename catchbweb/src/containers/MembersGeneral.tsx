@@ -20,14 +20,8 @@ const dummyData = {
     lastLoginIP: '192.168.0.1',
     activityLog: '활동 로그',
     points: '10,500P',
-    totalPurchase: '2회 660,000원'
-  })),
-  blacklists: Array.from({ length: 50 }, (_, i) => ({
-    name: `Blacklisted ${i + 1}`,
-    nickname: `Nickname ${i + 1}`,
-    gender: i % 2 === 0 ? '남' : '여',
-    email: `blacklist${i + 1}@example.com`,
-    phone: `010-9876-54${String(i + 1).padStart(2, '0')}`,
+    totalPurchase: '2회 660,000원',
+    isBlacklisted: i % 5 === 0, // 5명 중 1명은 블랙리스트로 표시
   })),
 };
 
@@ -46,11 +40,13 @@ const MembersGeneral: React.FC = () => {
     member.email.includes(memberSearchTerm) ||
     member.phone.includes(memberSearchTerm)
   );
-  const filterBlacklists = dummyData.blacklists.filter(member =>
-    member.name.includes(blacklistSearchTerm) ||
+
+  const filterBlacklists = dummyData.members.filter(member =>
+    member.isBlacklisted &&
+    (member.name.includes(blacklistSearchTerm) ||
     member.nickname.includes(blacklistSearchTerm) ||
     member.email.includes(blacklistSearchTerm) ||
-    member.phone.includes(blacklistSearchTerm)
+    member.phone.includes(blacklistSearchTerm))
   );
 
   const members = filterMembers.slice((membersPage - 1) * itemsPerPage, membersPage * itemsPerPage);
@@ -147,7 +143,7 @@ const MembersGeneral: React.FC = () => {
                   text="회원삭제"
                   color="black"
                   onClick={handleDeleteMember}
-                  type={1}
+                  type={2}
                   style={{ position: 'absolute', top: '0', left: '0' }}
                 />
                 <img src="https://via.placeholder.com/100" alt="Member" />
@@ -223,7 +219,7 @@ const MembersGeneral: React.FC = () => {
                   text="저장"
                   color="black"
                   onClick={handleSaveMemo}
-                  type={1}
+                  type={2}
                   style={{ position: 'absolute', top: '0', right: '0' }}
                 />
               </div>

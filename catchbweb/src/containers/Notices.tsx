@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import './Notices.css';
-import TextButton from '@components/Buttons/TextButton'; // TextButton 컴포넌트 경로 수정
+import TextButton from '@components/Buttons/TextButton';
 import SearchBar from '@components/SearchBar/SearchBar';
-import Pagination from '@components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
-import Table from '@components/Table/Table'; // Table 컴포넌트 임포트
+import Pagination from '@components/Pagination/Pagination';
+import Table from '@components/Table/Table';
+import Modal from '@components/Modal/Modal';
+import ModalButton from '@components/Buttons/ModalButton';
 
 const dummyNotices = Array.from({ length: 50 }, (_, i) => ({
   title: `Notice ${i + 1}`,
@@ -15,6 +19,7 @@ const dummyNotices = Array.from({ length: 50 }, (_, i) => ({
 const Notices: React.FC = () => {
   const [page, setPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const itemsPerPage = 10;
 
@@ -24,6 +29,30 @@ const Notices: React.FC = () => {
   );
 
   const notices = filteredNotices.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+
+  const quillModules = {
+    toolbar: [
+      [{ header: '1'}, { header: '2'}, { font: [] }],
+      [{ list: 'ordered'}, { list: 'bullet' }],
+      ['bold', 'italic', 'underline'],
+      ['link', 'image'],
+      [{ align: [] }],
+      [{ color: [] }, { background: [] }],
+      ['clean']
+    ]
+  };
+
+  const quillFormats = [
+    'header', 'font',
+    'bold', 'italic', 'underline',
+    'list', 'bullet',
+    'link', 'image', 'align', 'color', 'background'
+  ];
+
+  const handleSubmit = () => {
+    // 공지사항 등록 로직
+    setIsModalOpen(false);
+  };
 
   return (
     <div className="notices">
@@ -40,7 +69,7 @@ const Notices: React.FC = () => {
             type={1}
             color="#007bff"
             text="공지사항 생성하기"
-            onClick={() => console.log('공지사항 생성하기 버튼 클릭')}
+            onClick={() => setIsModalOpen(true)}
           />
         </div>
       </div>
@@ -62,6 +91,36 @@ const Notices: React.FC = () => {
         totalPages={Math.ceil(filteredNotices.length / itemsPerPage)}
         onPageChange={setPage}
       />
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleSubmit}
+        title="공지사항 생성"
+      >
+        <div className="notice-modal-body">
+          <div className="notice-modal-field">
+            <label htmlFor="title">제목:</label>
+            <input id="title" type="text" />
+          </div>
+          <div className="notice-modal-field">
+            <label htmlFor="content">내용:</label>
+            <ReactQuill
+              theme="snow"
+              modules={quillModules}
+              formats={quillFormats}
+              style={{ height: '200px', overflowY: 'auto' }}
+            />
+          </div>
+        </div>
+        <div className="notice-modal-actions">
+          <ModalButton
+            color="#007bff"
+            text="생성하기"
+            onClick={handleSubmit}
+          />
+        </div>
+      </Modal>
     </div>
   );
 };

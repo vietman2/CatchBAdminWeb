@@ -1,25 +1,60 @@
 .one-to-one {
-    padding: 0 30px;
-  }
-  
-  .one-to-one h1 {
-    margin-bottom: 20px;
-  }
-  
-  .one-to-one h2 {
-    margin-bottom: 20px;
-  }
+  padding: 0 30px;
+}
+
+.one-to-one h1 {
+  margin-bottom: 20px;
+}
+
+.one-to-one h2 {
+  margin-bottom: 20px;
+}
 
 
-  .status-incomplete {
-    color: gray;
-  }
-  
-  .status-review {
-    color: orange;
-  }
-  
-  .status-complete {
-    color: green;
-  }
-  
+.status-incomplete {
+  color: gray;
+}
+
+.status-review {
+  color: orange;
+}
+
+.status-complete {
+  color: green;
+}
+
+/* Inquiry Modal Styles */
+
+.onetoone-modal-body {
+margin-bottom: 20px;
+}
+
+.onetoone-modal-field {
+margin-bottom: 20px;
+}
+
+.onetoone-modal-field label {
+display: block;
+margin-bottom: 5px;
+}
+
+.onetoone-modal-value {
+display: block;
+height: 36px;
+padding: 8px;
+border: 1px solid #ddd;
+border-radius: 4px;
+background-color: #f9f9f9;
+}
+
+.answer-quill {
+.ql-container {
+  height: 200px;
+}
+}
+
+.onetoone-modal-actions {
+display: flex;
+justify-content: flex-end;
+margin-top: 20px;
+}

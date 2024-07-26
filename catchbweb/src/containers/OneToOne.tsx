@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 import './OneToOne.css';
 import SearchBar from '@components/SearchBar/SearchBar'; // SearchBar 컴포넌트 임포트
 import TabPanel from '@components/Tabs/TabPanel'; // TabPanel 컴포넌트 임포트
 import Pagination from '@components/Pagination/Pagination'; // Pagination 컴포넌트 임포트
 import Table from '@components/Table/Table'; // Table 컴포넌트 임포트
+import Modal from '@components/Modal/Modal';
+import ModalButton from '@components/Buttons/ModalButton'; // ModalButton 컴포넌트 임포트
 
 const dummyInquiries = Array.from({ length: 50 }, (_, i) => ({
   inquiryId: `inquiry${i + 1}`,
@@ -12,12 +16,17 @@ const dummyInquiries = Array.from({ length: 50 }, (_, i) => ({
   inquiryContent: `Inquiry Content ${i + 1}`,
   inquiryDate: `2023-01-${i + 1 < 10 ? '0' : ''}${i + 1}`,
   status: i % 3 === 0 ? '미답변' : i % 3 === 1 ? '검토중' : '처리완료',
+  type: i % 4 === 0 ? '예약' : i % 4 === 1 ? '아카데미' : i % 4 === 2 ? '코치' : '기타', // 추가된 속성
+  title: `Inquiry Title ${i + 1}`, // 추가된 속성
 }));
 
 const OneToOne: React.FC = () => {
   const [page, setPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('전체');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedInquiry, setSelectedInquiry] = useState<any>(null);
+  const [answerContent, setAnswerContent] = useState('');
 
   const itemsPerPage = 10;
 
@@ -57,6 +66,37 @@ const OneToOne: React.FC = () => {
     }
   };
 
+  const quillModules = {
+    toolbar: [
+      [{ header: '1' }, { header: '2' }, { font: [] }],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['bold', 'italic', 'underline'],
+      ['link', 'image'],
+      [{ align: [] }],
+      [{ color: [] }, { background: [] }],
+      ['clean']
+    ]
+  };
+
+  const quillFormats = [
+    'header', 'font',
+    'bold', 'italic', 'underline',
+    'list', 'bullet',
+    'link', 'image',
+    'align', 'color',
+    'background'
+  ];
+
+  const handleRowClick = (inquiry: any) => {
+    setSelectedInquiry(inquiry);
+    setIsModalOpen(true);
+  };
+
+  const handleSubmit = () => {
+    // 답변 등록 로직
+    setIsModalOpen(false);
+  };
+
   return (
     <div className="one-to-one">
       <h1>1:1 문의 대응</h1>
@@ -75,14 +115,14 @@ const OneToOne: React.FC = () => {
         />
       </div>
       <Table
-        headers={['문의 ID', '이름', '문의 아카데미명', '문의 내용', '문의 날짜', '처리상태']}
+        headers={['문의 ID', '이름', '문의 아카데미명', '문의 구분', '문의 날짜', '처리상태']}
         data={inquiries}
         renderRow={(inquiry, index) => (
-          <tr key={index}>
+          <tr key={index} onClick={() => handleRowClick(inquiry)}>
             <td>{inquiry.inquiryId}</td>
             <td>{inquiry.name}</td>
             <td>{inquiry.academy}</td>
-            <td>{inquiry.inquiryContent}</td>
+            <td>{inquiry.type}</td>
             <td>{inquiry.inquiryDate}</td>
             <td className={getStatusClass(inquiry.status)}>{inquiry.status}</td>
           </tr>
@@ -94,6 +134,53 @@ const OneToOne: React.FC = () => {
         totalPages={Math.ceil(filteredInquiries.length / itemsPerPage)} 
         onPageChange={setPage} 
       />
+
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleSubmit}
+        title="문의 상세"
+      >
+        {selectedInquiry && (
+          <div className="onetoone-modal-body">
+            <div className="onetoone-modal-field">
+              <label>문의 ID:</label>
+              <div className="onetoone-modal-value">{selectedInquiry.inquiryId}</div>
+            </div>
+            <div className="onetoone-modal-field">
+              <label>문의 구분:</label>
+              <div className="onetoone-modal-value">{selectedInquiry.type}</div>
+            </div>
+            <div className="onetoone-modal-field">
+              <label>문의 제목:</label>
+              <div className="onetoone-modal-value">{selectedInquiry.title}</div>
+            </div>
+            <div className="onetoone-modal-field">
+              <label>문의 내용:</label>
+              <div className="onetoone-modal-value">{selectedInquiry.inquiryContent}</div>
+            </div>
+            <div className="onetoone-modal-field">
+              <label>답변 내용:</label>
+              <ReactQuill
+                theme="snow"
+                modules={quillModules}
+                formats={quillFormats}
+                value={answerContent}
+                onChange={setAnswerContent}
+                style={{ height: '200px', overflowY: 'auto' }}
+                className="answer-quill"
+              />
+            </div>
+          </div>
+        )}
+        <div className="onetoone-modal-actions">
+          <ModalButton
+            color="#007bff"
+            text="답변 등록"
+            onClick={handleSubmit}
+          />
+        </div>
+      </Modal>
     </div>
   );
 };
